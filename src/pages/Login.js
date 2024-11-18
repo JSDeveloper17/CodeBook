@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTitle } from "../hooks/useTitle";
 import { toast } from 'react-toastify';
+import { useTitle } from "../hooks/useTitle";
 import { login } from "../services";
 
 export const Login = () => {
@@ -17,10 +17,10 @@ export const Login = () => {
         email: email.current.value,
         password: password.current.value
       }
-      const data = await login(authDetail)
+      const data = await login(authDetail);
       data.accessToken ? navigate("/products") : toast.error(data);
-    }catch(error){
-      toast.error(error.message, {closeButton: true, position:"bottom-center"});
+    } catch(error){
+      toast.error(error.message, {closeButton: true, position: "bottom-center"});
     }
   }
 
